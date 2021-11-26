@@ -1,10 +1,10 @@
 # Dynamic-Loading-Linux-Libraries
 Dynamic loading c++ from multiple Linux libraries
 
+Dynamically loaded libraries are libraries that are loaded at times other than during the startup of a program.
+They're particularly useful for implementing plugins or modules, because they permit waiting to load the plugin until it's needed.
 
-## install WSL2 (Windows Subsystem for Linux 2) on Windows 10
 
-https://pureinfotech.com/install-windows-subsystem-linux-2-windows-10/#install_wsl_command_1909_windows10
 
 
 ## 1) 1.1 Install standard Nodejs ( v10.x )
@@ -183,6 +183,30 @@ https://pureinfotech.com/install-windows-subsystem-linux-2-windows-10/#install_w
             sudo systemctl enable sshd
             sudo  systemctl status sshd
 
+            sudo service sshd start
+
      
 
+## install WSL2 (Windows Subsystem for Linux 2) on Windows 10
 
+        https://pureinfotech.com/install-windows-subsystem-linux-2-windows-10/#install_wsl_command_1909_windows10
+
+## Visual studio 2019 Connect to WSL
+
+        sudo apt install g++ gdb make ninja-build rsync zip
+
+        https://docs.microsoft.com/en-us/cpp/linux/configure-a-linux-project?view=msvc-170
+
+In your WSL instance,
+        sudo nano /etc/wsl.conf
+
+inser with the following contents:
+
+[user]
+        default=username
+
+from PowerShell, 
+
+        wsl --terminate <distro name>
+        
+and restart WSL.
