@@ -183,7 +183,7 @@ They're particularly useful for implementing plugins or modules, because they pe
             sudo systemctl enable sshd
             sudo  systemctl status sshd
 
-            sudo service sshd start
+            sudo service ssh start
 
      
 
@@ -197,16 +197,51 @@ They're particularly useful for implementing plugins or modules, because they pe
 
         https://docs.microsoft.com/en-us/cpp/linux/configure-a-linux-project?view=msvc-170
 
+        Requirements:
+
+        Windows 10 May 2020 (2004), Windows 10 May 2019 (1903), or Windows 10 November 2019 (1909) or later
+
+        A computer with Hyper-V Virtualization support
+
+        Step by Step explanation:  
+        https://www.ceos3c.com/wsl-2/install-wsl2-with-windows-terminal/
+
+
 In your WSL instance,
         sudo nano /etc/wsl.conf
 
 inser with the following contents:
 
-[user]
-        default=username
+        [user]
+                default=username
 
 from PowerShell, 
 
         wsl --terminate <distro name>
         
 and restart WSL.
+
+## Remote Debug Support in Visual Studio 2019
+
+        https://devblogs.microsoft.com/cppblog/remote-debug-support-in-visual-studio-2019/
+
+#INSTALL OPENSSH-SERVER IN WSL
+
+First, install OpenSSH server inside your Linux Distro:
+
+        sudo apt install openssh-server
+        [sudo] password for scott:
+        Reading package lists... Done
+        Building dependency tree
+        Reading state information... Done
+        openssh-server is already the newest version (1:7.6p1-4ubuntu0.3).
+        0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+   sudo nano /etc/ssh/sshd_config
+
+        ...STUFF ABOVE THIS...
+
+        Port 2828
+        #AddressFamily any
+        ListenAddress 127.0.0.1
+        #ListenAddress ::
