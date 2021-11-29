@@ -245,3 +245,11 @@ First, install OpenSSH server inside your Linux Distro:
         #AddressFamily any
         ListenAddress 127.0.0.1
         #ListenAddress ::
+
+#Using Node-Gyp on Linux code
+
+        npm install -g node-gyp
+
+        or
+
+        npm install -g node-gyp node-pre-gyp

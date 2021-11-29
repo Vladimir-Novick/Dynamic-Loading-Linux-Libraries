@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 extern "C" {
-	extern void lib_finction(char* inputValue);
+	extern void lib_finction(char* inputValue, unsigned char* src, unsigned char* dest, int len);
 }
 
 
